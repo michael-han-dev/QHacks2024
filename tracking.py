@@ -14,9 +14,9 @@ all_tracks = defaultdict(lambda: [])
 while cap.isOpened:
     ret, frame = cap.read()
     if ret:
-    
+
         results = model.track(frame, persist=True)
-        
+
         if results[0].boxes.id is None:
             continue
 
@@ -33,13 +33,14 @@ while cap.isOpened:
 
             points = np.hstack(track).astype(np.int32).reshape((-1, 1, 2))
             all_tracks[track_id].append(points)
-            cv2.polylines(annotation, [points], isClosed=False, color=(230, 230, 230), thickness=5)
+            cv2.polylines(annotation, [points], isClosed=False, color=(
+                230, 230, 230), thickness=5)
 
         cv2.imshow("Stream: ", annotation)
 
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
-    else: # end of video
+    else:  # end of video
         break
 
 cap.release()
@@ -48,7 +49,6 @@ cv2.destroyAllWindows()
 if all_tracks:
     fig, ax = plt.subplots()
 
-    for track_id, points in all_tracks.items:
+    for track_id, points in all_tracks.items():
         ax.plot(points[:, 0, 0], points[:, 0, 1], linewidth=2)
-        plt.savefig('output_plot.png')
-    
+    plt.savefig('output_plot.png')

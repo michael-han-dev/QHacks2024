@@ -9,7 +9,7 @@ model = YOLO('yolov8n.pt')
 
 cap = cv2.VideoCapture(video)
 history = defaultdict(lambda: [])
-all_tracks = []
+all_tracks = defaultdict(lambda: [])
 
 while cap.isOpened:
     ret, frame = cap.read()
@@ -32,7 +32,7 @@ while cap.isOpened:
                 track.pop(0)
 
             points = np.hstack(track).astype(np.int32).reshape((-1, 1, 2))
-            all_tracks.append(points)
+            all_tracks[track_id].append(points)
             cv2.polylines(annotation, [points], isClosed=False, color=(230, 230, 230), thickness=5)
 
         cv2.imshow("Stream: ", annotation)
@@ -48,7 +48,7 @@ cv2.destroyAllWindows()
 if all_tracks:
     fig, ax = plt.subplots()
 
-    for points in all_tracks:
+    for track_id, points in all_tracks.items:
         ax.plot(points[:, 0, 0], points[:, 0, 1], color='blue', linewidth=2)
         plt.savefig('output_plot.png')
     

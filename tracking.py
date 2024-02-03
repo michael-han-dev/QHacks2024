@@ -4,7 +4,7 @@ import numpy as np
 from collections import defaultdict
 import matplotlib.pyplot as plt
 
-video = 'demo1.mp4'
+video = 'videos/demo1.mp4'
 model = YOLO('yolov8n.pt')
 
 cap = cv2.VideoCapture(video)

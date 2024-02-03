@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 50px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.image-placeholder {
+  background-color: #d0d0d0;
+  width: 320px;
+  height: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.text-placeholder {
+  background-color: #e0e0e0;
+  padding: 10px;
+}

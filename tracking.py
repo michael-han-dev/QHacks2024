@@ -49,6 +49,6 @@ if all_tracks:
     fig, ax = plt.subplots()
 
     for track_id, points in all_tracks.items:
-        ax.plot(points[:, 0, 0], points[:, 0, 1], color='blue', linewidth=2)
+        ax.plot(points[:, 0, 0], points[:, 0, 1], linewidth=2)
         plt.savefig('output_plot.png')
     

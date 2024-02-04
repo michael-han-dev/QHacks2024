@@ -3,7 +3,8 @@ import './App.css';
 import vid from './media/demo1.mp4';
 import img from './media/output_plot.png'
 import logo from './media/logo.jpeg'
-//import demovid from 
+import demovid from './media/carTracking.mp4' 
+import multiPlot from './media/archive.png'
 
 
 
@@ -32,7 +33,7 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const items = [
-    { id: 1, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 1.' },
+    { id: 1, text: '401 HWY', videoUrl: demovid, imageUrl: multiPlot, detailText: 'Real time analytics will go here 1.' },
     { id: 2, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 2.' },
     { id: 3, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 3.' },
     { id: 4, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 4.' },
@@ -93,7 +94,7 @@ function App() {
             <table>
               <tr>
                 <th>Speed Limit : 100 km/h</th>
-                <th>Lanes : 3</th>
+                <th>Lanes : 4</th>
                 <th>Distance : 400 m</th>
                 <th>Time : <DateTimeDisplay /></th>
                 <th>SW : HW401</th>

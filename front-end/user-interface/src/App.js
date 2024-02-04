@@ -3,6 +3,7 @@ import './App.css';
 import vid from './media/demo1.mp4';
 import img from './media/output_plot.png'
 import logo from './media/logo.jpeg'
+//import demovid from 
 
 
 
@@ -31,12 +32,12 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const items = [
-    { id: 1, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 1.' },
-    { id: 2, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 2.' },
-    { id: 3, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 3.' },
-    { id: 4, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 4.' },
-    { id: 5, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 5.' },
-    { id: 6, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 6.' },
+    { id: 1, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 1.' },
+    { id: 2, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 2.' },
+    { id: 3, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 3.' },
+    { id: 4, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 4.' },
+    { id: 5, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 5.' },
+    { id: 6, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 6' },
 
   ];
 

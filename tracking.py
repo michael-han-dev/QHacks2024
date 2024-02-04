@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 
-video = 'videos/rocket-league-good.mp4'
+video = 'videos/rl-truck.mp4'
 model = YOLO('yolov8n.pt')
 
 cap = cv2.VideoCapture(video)
@@ -29,7 +29,7 @@ while cap.isOpened:
             x, y, w, h = box
             track = history[track_id]
             track.append((float(x), float(y)))
-            if len(track) > 30:
+            if len(track) > 120:
                 track.pop(0)
 
             points = np.hstack(track).astype(np.int32).reshape((-1, 1, 2))
@@ -80,7 +80,7 @@ for x, y in zip(x_points, y_points):
     # print(stats)
 
 fig, ax = plt.subplots()
-car_reg = car_regressions[6]
+car_reg = car_regressions[-1]
 print(f"{car_reg['x_vals'].shape}, mean_squared_error: {car_reg['mean_squared_error']}, r2_score: {car_reg['r2_score']}")
 ax.plot(car_reg['x_vals'], car_reg['y_vals'], linewidth=2)
 ax.plot(car_reg['x_vals'], car_reg['y_pred'], linewidth=2)

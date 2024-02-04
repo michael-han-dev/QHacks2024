@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import './App.css'; // Assuming you have a CSS file for styles
+import './App.css';
+import vid from './media/demo1.mp4';
+import img from './media/output_plot.png'
+import logo from './media/logo.jpeg'
 
 function App() {
   const [isBoxExpanded, setIsBoxExpanded] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // Your items array would be populated with actual data, possibly including images and additional text
   const items = [
-    { id: 1, text: 'Item 1', title: "Text", imageUrl: '/path/to/image', detailText: 'This is some detailed text for Item 1.' },
-    { id: 2, text: 'Item 2', title: "Text", imageUrl: '/path/to/image', detailText: 'This is some detailed text for Item 1.' },
-    { id: 3, text: 'Item 3', title: "Text", imageUrl: '/path/to/image', detailText: 'This is some detailed text for Item 1.' },
-    { id: 4, text: 'Item 4', title: "Text", imageUrl: '/path/to/image', detailText: 'This is some detailed text for Item 1.' },
-    { id: 5, text: 'Item 5', title: "Text", imageUrl: '/path/to/image', detailText: 'This is some detailed text for Item 1.' },
-    { id: 6, text: 'Item 6', title: "Text", imageUrl: '/path/to/image', detailText: 'This is some detailed text for Item 1.' },
+    { id: 1, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 1.' },
+    { id: 2, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 2.' },
+    { id: 3, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 3.' },
+    { id: 4, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 4.' },
+    { id: 5, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 5.' },
+    { id: 6, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 6.' },
 
   ];
 
@@ -32,22 +34,30 @@ function App() {
   const ExpandedContent = ({ item }) => (
     <div className="expanded-container">
       <div className="close-button" onClick={handleClose}>X</div>
-      <h1>{item.title}</h1>
+      <h1 className=''>{item.text}</h1>
       <div className="content-layout">
-        <div className="main-image" style={{ backgroundImage: `url(${item.imageUrl})` }}>This is an image</div>
+        <video className="main-video" autoplay controls muted>
+          <source src={item.videoUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="side-content">
-          <div className="side-image">This is an image</div>
+          <img className="side-image" src={item.imageUrl} alt=""></img>
           <div className="side-text">{item.detailText}</div>
         </div>
       </div>
     </div>
   );
 
-  // The main render method checks whether to display the grid or the expanded content
   return (
     <div className="App">
-      <header className="App-header">
-        God's Eye
+      <header className="header">
+        <div className="App-header">
+          <img className="logo" src={logo} alt=""></img>
+          DIONYSUS
+        </div>
+        <div className="subheader">
+          Driver Impairment Observation Network Yielding Safety Under Supervision
+        </div>
       </header>
       {isBoxExpanded && selectedItem ? (
         <ExpandedContent item={selectedItem} />
@@ -55,7 +65,9 @@ function App() {
         <div className="grid-container">
           {items.map(item => (
             <div key={item.id} className="grid-item" onClick={() => handleBoxClick(item)}>
-              <div className="image-placeholder">This is an image</div>
+              <video className="image-placeholder" autoplay loop muted>
+                <source src={item.videoUrl} type="video/mp4"/>
+              </video>
               <div className="text-placeholder">{item.text}</div>
             </div>
           ))}

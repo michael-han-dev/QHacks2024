@@ -122,7 +122,19 @@ h1 {
 .expanded-hud-text > div {
   /* If you want equal space around each item use 'space-around' */
   /* If you want the first item at the start and the last at the end use 'space-between' */
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.expanded-hud-text table {
+  width: 100%; /* Table should span the full width of its container */
+  border-collapse: collapse; /* Collapse borders for a cleaner look */
+}
+
+.expanded-hud-text th {
+  text-align: center; /* Center-align text within headers */
+  width: 25%; /* Divide the table into equal column widths */
 }
 
 /* This styles the date and time display */

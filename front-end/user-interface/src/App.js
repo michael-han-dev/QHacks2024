@@ -67,10 +67,14 @@ function App() {
         </div>
         <div className = "expanded-hud">
           <div className="expanded-hud-text">
-            <div>Speed Limit: 100 km/h</div>
-            <div>Lanes: 3</div>
-            <div>Distance: 300 m</div>
-            <div>Time: <DateTimeDisplay /></div>
+            <table>
+              <tr>
+                <th>Speed Limit : 100 km/h</th>
+                <th>Lanes : 3</th>
+                <th>Distance : 300 m</th>
+                <th>Time : <DateTimeDisplay /></th>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

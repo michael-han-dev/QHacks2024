@@ -105,6 +105,39 @@ h1 {
   justify-content: space-between;
 }
 
+/* This styles the expanded HUD */
+.expanded-hud {
+  position: fixed; /* Fixed at the bottom */
+  justify-content: space-between;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Full width */
+  background-color: rgb(192, 192, 192); /* Black background */
+  color: rgb(0, 0, 0); /* White text */
+  font-weight: 900;
+  text-align: center; /* Center the text */
+  padding: 15px 0; /* Some padding */
+}
+
+.expanded-hud-text > div {
+  /* If you want equal space around each item use 'space-around' */
+  /* If you want the first item at the start and the last at the end use 'space-between' */
+  justify-content: space-between;
+}
+
+/* This styles the date and time display */
+.dateTimeDisplay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 /* This styles the side image */
 .side-image {
   /* background-color: #d0d0d0; */

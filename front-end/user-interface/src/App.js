@@ -3,6 +3,8 @@ import './App.css';
 import vid from './media/demo1.mp4';
 import img from './media/output_plot.png'
 import logo from './media/logo.jpeg'
+import demovid from './media/carTracking.mp4' 
+import multiPlot from './media/archive.png'
 
 
 
@@ -25,19 +27,41 @@ function DateTimeDisplay() {
 }
 
 
+
 function App() {
   const [isBoxExpanded, setIsBoxExpanded] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const items = [
-    { id: 1, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 1.' },
-    { id: 2, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 2.' },
-    { id: 3, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 3.' },
-    { id: 4, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 4.' },
-    { id: 5, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 5.' },
-    { id: 6, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 6.' },
+    { id: 1, text: '401 HWY', videoUrl: demovid, imageUrl: multiPlot, detailText: 'Real time analytics will go here 1.' },
+    { id: 2, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 2.' },
+    { id: 3, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 3.' },
+    { id: 4, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 4.' },
+    { id: 5, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 5.' },
+    { id: 6, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'Real time analytics will go here 6' },
 
   ];
+
+
+  const [dropdownSelection, setDropdownSelection] = useState(null);
+
+  // Function to handle selection from dropdown
+  const handleDropdownChange = (event) => {
+    const itemId = Number(event.target.value);
+    const selectedItem = items.find(item => item.id === itemId);
+    setSelectedItem(selectedItem);
+    setIsBoxExpanded(true); // Automatically expand the selected content
+  };
+
+  // Dropdown component within the header
+  const Dropdown = () => (
+    <select onChange={handleDropdownChange} value={dropdownSelection || ''}>
+      <option value="">Menu</option>
+      {items.map(item => (
+        <option key={item.id} value={item.id}>{item.text}</option>
+      ))}
+    </select>
+  );
 
   // Handles clicking on a grid item
   const handleBoxClick = (item) => {
@@ -54,7 +78,7 @@ function App() {
   // Component for the expanded content view
   const ExpandedContent = ({ item }) => (
     <div className="expanded-container">
-      <div className="close-button" onClick={handleClose}>X</div>
+        <div className="close-button" onClick={handleClose}>X</div>
       <h1 className=''>{item.text}</h1>
       <div className="content-layout">
         <video className="main-video" autoPlay loop muted>
@@ -67,10 +91,15 @@ function App() {
         </div>
         <div className = "expanded-hud">
           <div className="expanded-hud-text">
-            <div>Speed Limit: 100 km/h</div>
-            <div>Lanes: 3</div>
-            <div>Distance: 300 m</div>
-            <div>Time: <DateTimeDisplay /></div>
+            <table>
+              <tr>
+                <th>Speed Limit : 100 km/h</th>
+                <th>Lanes : 4</th>
+                <th>Distance : 400 m</th>
+                <th>Time : <DateTimeDisplay /></th>
+                <th>SW : HW401</th>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
@@ -86,6 +115,7 @@ function App() {
         </div>
         <div className="subheader">
           Driver Impairment Observation Network Yielding Safety Under Supervision
+          <Dropdown />
         </div>
       </header>
       {isBoxExpanded && selectedItem ? (

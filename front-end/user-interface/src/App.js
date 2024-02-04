@@ -25,6 +25,7 @@ function DateTimeDisplay() {
 }
 
 
+
 function App() {
   const [isBoxExpanded, setIsBoxExpanded] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -38,6 +39,27 @@ function App() {
     { id: 6, text: '401 HWY', videoUrl: vid, imageUrl: img, detailText: 'This is some detailed text for Item 6.' },
 
   ];
+
+
+  const [dropdownSelection, setDropdownSelection] = useState(null);
+
+  // Function to handle selection from dropdown
+  const handleDropdownChange = (event) => {
+    const itemId = Number(event.target.value);
+    const selectedItem = items.find(item => item.id === itemId);
+    setSelectedItem(selectedItem);
+    setIsBoxExpanded(true); // Automatically expand the selected content
+  };
+
+  // Dropdown component within the header
+  const Dropdown = () => (
+    <select onChange={handleDropdownChange} value={dropdownSelection || ''}>
+      <option value="">Menu</option>
+      {items.map(item => (
+        <option key={item.id} value={item.id}>{item.text}</option>
+      ))}
+    </select>
+  );
 
   // Handles clicking on a grid item
   const handleBoxClick = (item) => {
@@ -54,7 +76,7 @@ function App() {
   // Component for the expanded content view
   const ExpandedContent = ({ item }) => (
     <div className="expanded-container">
-      <div className="close-button" onClick={handleClose}>X</div>
+        <div className="close-button" onClick={handleClose}>X</div>
       <h1 className=''>{item.text}</h1>
       <div className="content-layout">
         <video className="main-video" autoPlay loop muted>
@@ -71,8 +93,9 @@ function App() {
               <tr>
                 <th>Speed Limit : 100 km/h</th>
                 <th>Lanes : 3</th>
-                <th>Distance : 300 m</th>
+                <th>Distance : 400 m</th>
                 <th>Time : <DateTimeDisplay /></th>
+                <th>SW : HW401</th>
               </tr>
             </table>
           </div>
@@ -90,6 +113,7 @@ function App() {
         </div>
         <div className="subheader">
           Driver Impairment Observation Network Yielding Safety Under Supervision
+          <Dropdown />
         </div>
       </header>
       {isBoxExpanded && selectedItem ? (

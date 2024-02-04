@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 
-video = 'videos/rocket-league-good.mp4'
+video = 'videos/rocket-league-good2.mp4'
 model = YOLO('yolov8n.pt')
 
 cap = cv2.VideoCapture(video)

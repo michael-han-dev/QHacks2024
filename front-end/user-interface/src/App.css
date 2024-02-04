@@ -1,0 +1,160 @@
+.App {
+  text-align: center;
+}
+.header{
+  background-color: #151515;
+  color:#ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.App-header {
+  font-size: 48px;
+  display: flex;
+}
+
+.subheader{
+  font-size: 24px;
+  display: flex;
+  padding-left: 10px;
+}
+
+.logo{
+  flex-direction: row;
+  height: 4%;
+  width: 4%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 50px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.text-placeholder {
+  background-color: #e0e0e0;
+  padding: 10px;
+}
+
+/* Existing styles... */
+
+/* This styles the background and layout of the expanded content */
+.expanded-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff; /* Assuming a white background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* High enough to overlay over other content */
+}
+
+/* This styles the close button */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* This styles the title */
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+/* This styles the layout of the content area with the image and text side by side */
+.content-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 1200px; /* Adjust as needed */
+  gap: 20px; /* Space between the main image and side content */
+}
+
+/* This styles the main image area */
+.main-image {
+  flex: 1;
+  height: 500px; /* Adjust as needed */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+/* This styles the side content area */
+.side-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* This styles the side image */
+.side-image {
+  /* background-color: #d0d0d0; */
+  height: 240px; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: #333; */
+}
+
+/* This styles the side text */
+.side-text {
+  background-color: #e0e0e0;
+  padding: 20px;
+  font-size: 1em;
+  color: #333;
+  height: 240px; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Add responsive styles if necessary */
+@media (max-width: 768px) {
+  .content-layout {
+    flex-direction: column;
+  }
+
+  .main-image, .side-image {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .side-text {
+    width: 100%; /* Full width on smaller screens */
+    margin-top: 20px; /* Space after the side image */
+  }
+}
+
+/* Existing styles... */
+
+.main-video {
+  width: 60%; /* Adjust as needed */
+  height: auto; /* Adjust as needed */
+}
+
+.image-placeholder {
+  width: 80%; /* Adjust as needed */
+  height: auto; /* Adjust to maintain aspect ratio */
+  object-fit: cover; /* This will ensure the video covers the area without stretching */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
